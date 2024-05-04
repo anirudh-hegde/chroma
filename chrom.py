@@ -1,13 +1,13 @@
-import os
-import time
+"""A tkinter digital painting app"""
 from tkinter import *
-import tkinter as tk
 from tkinter import messagebox
 import mysql.connector
 from config import DB_CONFIG
-root1 = tk.Tk()
+
+root1 = Tk()
 
 
+"""enter the email and password"""
 def register():
     email = username_entry.get()
     user_password = password_entry.get()
@@ -27,24 +27,24 @@ def register():
 
 root1.title("Login")
 
-register_frame = tk.Frame(root1)
+register_frame = Frame(root1)
 register_frame.pack(pady=20)
 
-tk.Label(register_frame, text="Email:").grid(row=0, column=0, padx=10, pady=5)
-username_entry = tk.Entry(register_frame)
+Label(register_frame, text="Email:").grid(row=0, column=0, padx=10, pady=5)
+username_entry = Entry(register_frame)
 username_entry.grid(row=0, column=1)
 
-tk.Label(register_frame, text="Password:").grid(row=1, column=0, padx=10, pady=5)
-password_entry = tk.Entry(register_frame, show="*")
+Label(register_frame, text="Password:").grid(row=1, column=0, padx=10, pady=5)
+password_entry = Entry(register_frame, show="*")
 password_entry.grid(row=1, column=1)
 
-register_button = tk.Button(register_frame, text="Login", command=register)
+register_button = Button(register_frame, text="Login", command=register)
 register_button.grid(row=2, columnspan=2, pady=10)
 
 
-def save():
-    global image_number
-
+# def save():
+#     global image_number
+global current_color
 
 def delete():
     cv.delete("all")
@@ -60,21 +60,21 @@ def paint(e):
     global lastx, lasty
     # current_color
     x, y = e.x, e.y
-    cv.create_line((lastx, lasty, x, y), width = 1, fill = current_color)
+    cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
     lastx, lasty = x, y
 
 
 def change_color(color):
-    global current_color
+
     current_color = color
 
 
 root = Tk()
 cv = Canvas(root, width=640, height=480, bg='white')
 
-
+"""draw lines with different colors"""
 def main_paint():
-    lastx, lasty = None, None
+    # lastx, lasty = None, None
     image_number = 0
     current_color = 'black'
 
@@ -92,7 +92,8 @@ def main_paint():
 
     colors = ['black', 'red', 'green', 'blue', 'yellow', 'orange', 'purple']
     for color in colors:
-        btn_color = Button(color_palette, bg=color, width=2, command=lambda c=color: change_color(c))
+        btn_color = Button(color_palette, bg=color, width=2,
+                           command=lambda c=color: change_color(c))
         btn_color.pack(side=LEFT, padx=2, pady=2)
 
 
