@@ -7,6 +7,7 @@
 </a>
 </p>
 <h5><p align="center"><i>If you like the project, please ⭐ this repository to show your support! 🤩</i></p></h5>
+
 ## Intro
 Chroma is a tkinter digital painting app which enables to draw various colors along with user register system 
 and is integrated with MySQL to add user details.
