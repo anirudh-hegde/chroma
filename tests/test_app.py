@@ -12,6 +12,7 @@ if os.environ.get('DISPLAY','') == '':
     
 @pytest.fixture
 def app():
+    """tests the app"""
     root = Tk()
     cv = Canvas(root, width=640, height=480, bg='white')
     cv.pack()
@@ -21,6 +22,7 @@ def app():
 
 
 def test_activate_paint():
+    """tests activation of paint"""
     root=Tk()
     cv = Canvas(root, width=640, height=480, bg='white')
     event = MagicMock()
@@ -29,18 +31,21 @@ def test_activate_paint():
     assert cv.bind.called_with('<B1-Motion>', paint)
 
 def test_change_color():
+    """tests change in color"""
     global current_color, initial_color
     initial_color = current_color
     change_color('blue')
     assert current_color == 'blue'
 
 def test_delete():
+    """tests the delete all"""
     root=Tk()
     cv = Canvas(root, width=640, height=480, bg='white')
     delete()
     assert cv.delete("all")
 
 def test_color_buttons():
+    """tests the color button"""
     global current_color
     color_buttons = app.children['!frame'].winfo_children()
     for btn in color_buttons:
