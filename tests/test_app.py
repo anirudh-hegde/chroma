@@ -29,8 +29,8 @@ def test_activate_paint():
     assert cv.bind.called_with('<B1-Motion>', paint)
 
 def test_change_color():
-    global current_color
-    global initial_color = current_color
+    global current_color, initial_color
+    initial_color = current_color
     change_color('blue')
     assert current_color == 'blue'
 
