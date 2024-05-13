@@ -67,7 +67,7 @@ def paint(e):
 
 def change_color(color):
     """changes the color"""
-    global current_color
+    current_color
     current_color = color
 
 
