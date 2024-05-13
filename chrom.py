@@ -84,22 +84,22 @@ def main_paint():
     # current_color = 'black'
 
     cv.bind('<1>', activate_paint)
-    cv.pack(expand=YES, fill=BOTH)
+    cv.pack(expand='YES', fill=BOTH)
 
     btn_save = tk.Button(text="Save", command=save)
-    btn_save.pack(side=LEFT, padx=5, pady=5)
+    btn_save.pack(side='LEFT', padx=5, pady=5)
 
     btn_delete = tk.Button(text="Delete", command=delete)
-    btn_delete.pack(side=LEFT, padx=5, pady=5)
+    btn_delete.pack(side='LEFT', padx=5, pady=5)
 
     color_palette = tk.Frame(root)
-    color_palette.pack(side=BOTTOM, padx=5, pady=5)
+    color_palette.pack(side='BOTTOM', padx=5, pady=5)
 
     colors = ['black', 'red', 'green', 'blue', 'yellow', 'orange', 'purple']
     for color in colors:
         btn_color = tk.Button(color_palette, bg=color, width=2,
                            command=lambda c=color: change_color(c))
-        btn_color.pack(side=LEFT, padx=2, pady=2)
+        btn_color.pack(side='LEFT', padx=2, pady=2)
 
 
 root.mainloop()
