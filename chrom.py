@@ -63,11 +63,10 @@ def paint(e):
     x, y = e.x, e.y
     lastx, lasty = x, y
     cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
-    
 
 def change_color(color):
     """changes the color"""
-    current_color=""
+    current_color=None
     current_color = color
 
 
