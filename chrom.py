@@ -65,7 +65,6 @@ def paint(e):
     cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
     
 
-
 def change_color(color):
     """changes the color"""
     current_color=""
@@ -78,9 +77,9 @@ cv = tk.Canvas(root, width=640, height=480, bg='white')
 def main_paint():
     """draw lines with different colors"""
     cv.bind('<1>', activate_paint)
-    cv.pack(expand='YES', fill=BOTH)
+    cv.pack(expand='YES', fill='BOTH')
 
-    btn_save = tk.Button(text="Save", command=save)
+    btn_save = tk.Button(text="Save", command='save')
     btn_save.pack(side='LEFT', padx=5, pady=5)
 
     btn_delete = tk.Button(text="Delete", command=delete)
