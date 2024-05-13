@@ -44,11 +44,10 @@ register_button.grid(row=2, columnspan=2, pady=10)
 
 # def save():
 #     global image_number
-global current_color,lastx, lasty
+# global current_color,lastx, lasty
 
 def delete():
     """delete the canvas"""
-    
     cv.delete("all")
 
 
@@ -61,14 +60,15 @@ def activate_paint():
 
 def paint(e):
     """creates the paint """
-    global lastx, lasty
     x, y = e.x, e.y
-    cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
     lastx, lasty = x, y
+    cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
+    
 
 
 def change_color(color):
     """changes the color"""
+    current_color=""
     current_color = color
 
 
@@ -77,11 +77,6 @@ cv = tk.Canvas(root, width=640, height=480, bg='white')
 
 def main_paint():
     """draw lines with different colors"""
-    
-    # lastx, lasty = None, None
-    # image_number = 0
-    # current_color = 'black'
-
     cv.bind('<1>', activate_paint)
     cv.pack(expand='YES', fill=BOTH)
 
