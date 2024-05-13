@@ -44,20 +44,20 @@ register_button.grid(row=2, columnspan=2, pady=10)
 
 # def save():
 #     global image_number
-global current_color
+global current_color,lastx, lasty
 
 def delete():
     cv.delete("all")
 
 
 def activate_paint(e):
-    global lastx, lasty
+    # global lastx, lasty
     cv.bind('<B1-Motion>', paint)
     lastx, lasty = e.x, e.y
 
 
 def paint(e):
-    global lastx, lasty
+    # global lastx, lasty
     # current_color
     x, y = e.x, e.y
     cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
