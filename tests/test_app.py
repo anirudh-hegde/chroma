@@ -14,9 +14,8 @@ def app():
     yield root
     root.destroy()
 
-cv = Canvas(root, width=640, height=480, bg='white')
-global current_color
 root=Tk()
+cv = Canvas(root, width=640, height=480, bg='white')
 
 def test_activate_paint(app):
     event = MagicMock()
@@ -31,6 +30,7 @@ def test_paint(app):
     assert cv.create_line.called
 
 def test_change_color(app):
+    global current_color
     initial_color = current_color
     change_color('blue')
     assert current_color == 'blue'
