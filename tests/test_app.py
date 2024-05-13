@@ -8,11 +8,10 @@ from chrom import main_paint, activate_paint, paint, change_color, delete
 
 if os.environ.get('DISPLAY','') == '':
         # print('no display found. Using :0.0')
-        os.environ.__setitem__('DISPLAY', ':0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
     
 @pytest.fixture
 def app():
-    
     root = Tk()
     cv = Canvas(root, width=640, height=480, bg='white')
     cv.pack()
@@ -43,7 +42,7 @@ def test_change_color(app):
     change_color('blue')
     assert current_color == 'blue'
 
-def test_delete(app):
+def test_delete():
     root=Tk()
     cv = Canvas(root, width=640, height=480, bg='white')
     delete()
