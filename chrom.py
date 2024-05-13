@@ -2,13 +2,13 @@
 import tkinter as tk
 from tkinter import messagebox
 import mysql.connector
-from config import DB_CONFIG
+# from config import DB_CONFIG
 
 root1 = tk.Tk()
-current_color = None 
 
+
+"""enter the email and password"""
 def register():
-    """enter the email and password"""
     email = username_entry.get()
     user_password = password_entry.get()
 
@@ -44,55 +44,57 @@ register_button.grid(row=2, columnspan=2, pady=10)
 
 # def save():
 #     global image_number
-# global current_color,lastx, lasty
+global current_color
 
 def delete():
-    """delete the canvas"""
     cv.delete("all")
 
 
 def activate_paint(e):
-    """activates the paint feature"""
-    # global lastx, lasty
+    global lastx, lasty
     cv.bind('<B1-Motion>', paint)
     lastx, lasty = e.x, e.y
 
 
 def paint(e):
-    """creates the paint """
-    global current_color
+    global lastx, lasty
+    # current_color
     x, y = e.x, e.y
-    lastx, lasty = x, y
     cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
+    lastx, lasty = x, y
+
 
 def change_color(color):
-    """changes the color"""
-    current_color
+
     current_color = color
 
 
 root = tk.Tk()
 cv = tk.Canvas(root, width=640, height=480, bg='white')
 
+"""draw lines with different colors"""
 def main_paint():
-    """draw lines with different colors"""
+    # lastx, lasty = None, None
+    image_number = 0
+    current_color = 'black'
+
     cv.bind('<1>', activate_paint)
-    cv.pack(expand='YES', fill='BOTH')
+    cv.pack(expand=YES, fill=BOTH)
 
-    btn_save = tk.Button(text="Save", command='save')
-    btn_save.pack(side='LEFT', padx=5, pady=5)
+    btn_save = Button(text="Save", command=save)
+    btn_save.pack(side=LEFT, padx=5, pady=5)
 
-    btn_delete = tk.Button(text="Delete", command=delete)
-    btn_delete.pack(side='LEFT', padx=5, pady=5)
+    btn_delete = Button(text="Delete", command=delete)
+    btn_delete.pack(side=LEFT, padx=5, pady=5)
 
-    color_palette = tk.Frame(root)
+    color_palette = Frame(root)
     color_palette.pack(side='BOTTOM', padx=5, pady=5)
 
     colors = ['black', 'red', 'green', 'blue', 'yellow', 'orange', 'purple']
     for color in colors:
-        btn_color = tk.Button(color_palette, bg=color, width=2,
+        btn_color = Button(color_palette, bg=color, width=2,
                            command=lambda c=color: change_color(c))
-        btn_color.pack(side='LEFT', padx=2, pady=2)
+        btn_color.pack(side=LEFT, padx=2, pady=2)
 
 
 root.mainloop()
