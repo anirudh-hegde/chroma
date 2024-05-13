@@ -1,9 +1,9 @@
 """Tests the GUI app"""
 import os
-import pytest
 from tkinter import Tk, Canvas, Button
-from tkinter.messagebox import showinfo
 from unittest.mock import MagicMock
+import pytest
+# from tkinter.messagebox import showinfo
 from chrom import main_paint, activate_paint, paint, change_color, delete
 
 if os.environ.get('DISPLAY','') == '':
