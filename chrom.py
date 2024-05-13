@@ -52,7 +52,7 @@ def delete():
     cv.delete("all")
 
 
-def activate_paint(e):
+def activate_paint():
     """activates the paint feature"""
     # global lastx, lasty
     cv.bind('<B1-Motion>', paint)
@@ -61,8 +61,7 @@ def activate_paint(e):
 
 def paint(e):
     """creates the paint """
-    # global lastx, lasty
-    global current_color
+    global lastx, lasty
     x, y = e.x, e.y
     cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
     lastx, lasty = x, y
