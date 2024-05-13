@@ -3,12 +3,7 @@ import os
 from tkinter import Tk, Canvas
 from unittest.mock import MagicMock
 import pytest
-# from tkinter.messagebox import showinfo
 from chrom import main_paint, activate_paint, paint, change_color, delete
-
-if os.environ.get('DISPLAY','') == '':
-        # print('no display found. Using :0.0')
-    os.environ.__setitem__('DISPLAY', ':0.0')
     
 @pytest.fixture
 def app():
