@@ -3,7 +3,7 @@ from tkinter import Tk, Canvas, Button
 from tkinter.messagebox import showinfo
 from unittest.mock import MagicMock
 from chrom import main_paint, activate_paint, paint, change_color, delete
-
+cv = Canvas(root, width=640, height=480, bg='white')
 @pytest.fixture
 def app():
     root = Tk()
