@@ -3,10 +3,13 @@ from tkinter import Tk, Canvas, Button
 from tkinter.messagebox import showinfo
 from unittest.mock import MagicMock
 from chrom import main_paint, activate_paint, paint, change_color, delete
-
+import os
 
 @pytest.fixture
 def app():
+    if os.environ.get('DISPLAY','') == '':
+        print('no display found. Using :0.0')
+        os.environ.__setitem__('DISPLAY', ':0.0')
     root = Tk()
     cv = Canvas(root, width=640, height=480, bg='white')
     cv.pack()
