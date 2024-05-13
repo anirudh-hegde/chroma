@@ -19,16 +19,18 @@ def app():
     yield root
     root.destroy()
 
-root=Tk()
-cv = Canvas(root, width=640, height=480, bg='white')
 
 def test_activate_paint(app):
+    root=Tk()
+    cv = Canvas(root, width=640, height=480, bg='white')
     event = MagicMock()
     event.x, event.y = 50, 50
     activate_paint(event)
     assert cv.bind.called_with('<B1-Motion>', paint)
 
 def test_paint(app):
+    root=Tk()
+    cv = Canvas(root, width=640, height=480, bg='white')
     event = MagicMock()
     event.x, event.y = 100, 100
     paint(event)
@@ -41,6 +43,8 @@ def test_change_color(app):
     assert current_color == 'blue'
 
 def test_delete(app):
+    root=Tk()
+    cv = Canvas(root, width=640, height=480, bg='white')
     delete()
     assert cv.delete.called
 
