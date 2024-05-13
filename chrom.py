@@ -5,7 +5,7 @@ import mysql.connector
 from config import DB_CONFIG
 
 root1 = tk.Tk()
-
+current_color = None 
 
 def register():
     """enter the email and password"""
@@ -51,22 +51,23 @@ def delete():
     cv.delete("all")
 
 
-def activate_paint():
+def activate_paint(e):
     """activates the paint feature"""
-    # global lastx, lasty
+    global lastx, lasty
     cv.bind('<B1-Motion>', paint)
-    # lastx, lasty = e.x, e.y
+    lastx, lasty = e.x, e.y
 
 
 def paint(e):
     """creates the paint """
+    global lastx, lasty, current_color
     x, y = e.x, e.y
     lastx, lasty = x, y
     cv.create_line((lastx, lasty, x, y), width=1, fill=current_color)
 
 def change_color(color):
     """changes the color"""
-    current_color=None
+    global current_color
     current_color = color
 
 
