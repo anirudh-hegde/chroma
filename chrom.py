@@ -7,8 +7,8 @@ from config import DB_CONFIG
 root1 = Tk()
 
 
-"""enter the email and password"""
 def register():
+    """enter the email and password"""
     email = username_entry.get()
     user_password = password_entry.get()
 
@@ -47,16 +47,20 @@ register_button.grid(row=2, columnspan=2, pady=10)
 global current_color,lastx, lasty
 
 def delete():
+    """delete the canvas"""
+    
     cv.delete("all")
 
 
 def activate_paint(e):
+    """activates the paint feature"""
     # global lastx, lasty
     cv.bind('<B1-Motion>', paint)
     # lastx, lasty = e.x, e.y
 
 
 def paint(e):
+    """creates the paint """
     # global lastx, lasty
     # current_color
     x, y = e.x, e.y
@@ -65,18 +69,19 @@ def paint(e):
 
 
 def change_color(color):
-
+    """changes the color"""
     current_color = color
 
 
 root = Tk()
 cv = Canvas(root, width=640, height=480, bg='white')
 
-"""draw lines with different colors"""
 def main_paint():
+    """draw lines with different colors"""
+    
     # lastx, lasty = None, None
     # image_number = 0
-    current_color = 'black'
+    # current_color = 'black'
 
     cv.bind('<1>', activate_paint)
     cv.pack(expand=YES, fill=BOTH)
