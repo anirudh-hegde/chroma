@@ -1,3 +1,4 @@
+"""Tests the GUI app"""
 import os
 import pytest
 from tkinter import Tk, Canvas, Button
