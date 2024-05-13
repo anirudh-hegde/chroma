@@ -53,7 +53,7 @@ def delete():
 def activate_paint(e):
     # global lastx, lasty
     cv.bind('<B1-Motion>', paint)
-    lastx, lasty = e.x, e.y
+    # lastx, lasty = e.x, e.y
 
 
 def paint(e):
@@ -75,7 +75,7 @@ cv = Canvas(root, width=640, height=480, bg='white')
 """draw lines with different colors"""
 def main_paint():
     # lastx, lasty = None, None
-    image_number = 0
+    # image_number = 0
     current_color = 'black'
 
     cv.bind('<1>', activate_paint)
